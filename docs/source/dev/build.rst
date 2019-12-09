@@ -50,7 +50,6 @@ But you need first to specify the Maven profile to use and rebuild the project.
 
 * ``es-7x`` for Elasticsearch 7.x
 * ``es-6x`` for Elasticsearch 6.x
-* ``es-5x`` for Elasticsearch 5.x
 
 
 Run tests with an external cluster
@@ -58,17 +57,13 @@ Run tests with an external cluster
 
 To run the test suite against an elasticsearch instance running locally, just run::
 
-    mvn verify -pl fr.pilato.elasticsearch.crawler:fscrawler-it-v7
+    mvn verify -pl fr.pilato.elasticsearch.crawler:fscrawler-it-v7 -Dtests.cluster.url=http://localhost:9200
 
 .. tip::
 
-    If you want to run against a version 5 or 6, run::
+    If you want to run against a version 6, run::
 
-        mvn verify -pl fr.pilato.elasticsearch.crawler:fscrawler-it-v5
-        mvn verify -pl fr.pilato.elasticsearch.crawler:fscrawler-it-v6
-
-If elasticsearch is not running yet on ``http://localhost:9200``, FSCrawler project will run a Docker instance before
-the tests start.
+        mvn verify -pl fr.pilato.elasticsearch.crawler:fscrawler-it-v6 -Dtests.cluster.url=http://localhost:9200
 
 .. hint::
 
